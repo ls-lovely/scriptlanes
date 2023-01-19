@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./App.css";
 
 function App() {
+  const [users, setUsers] = useState([]);
+
+  const getApi = async () => {
+    try {
+      const response = await axios.get(
+        "https://newsapi.org/v2/top-headlines?sources=engadget&apiKey=be8c5d2db3fe41e8935d30f6a4a667a0"
+      );
+      setUsers(response.data);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    getApi();
+  }, []);
+
+  for (let i = 0; i <= response.data.length; i++) {}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <table>
+        <thead>
+          <tr>
+            <th>Sr No.</th>
+            <th>Title.</th>
+            <th>Image.</th>
+          </tr>
+        </thead>
+        {response.data.articles.map(index, title, urlToImage)}
+      </table>
     </div>
   );
 }
