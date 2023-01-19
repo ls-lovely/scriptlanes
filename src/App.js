@@ -20,19 +20,38 @@ function App() {
     getApi();
   }, []);
 
-  for (let i = 0; i <= response.data.length; i++) {}
+  // for displaying the sr no
+
+  // for (let i = 0; i <= response.data.length; i++) {}
+
   return (
     <div className="App">
-      <table>
-        <thead>
-          <tr>
-            <th>Sr No.</th>
-            <th>Title.</th>
-            <th>Image.</th>
-          </tr>
-        </thead>
-        {response.data.articles.map(index, title, urlToImage)}
-      </table>
+      {/* {users.length > 0 && (
+        <ul>
+          {users.map((user) => (
+            <li key={user.id}>{user.data.articles.title}</li>
+          ))}
+        </ul>
+      )} */}
+      {users.length > 0 && (
+        <table>
+          <thead>
+            <tr>
+              <th>Sr No.</th>
+              <th>Title.</th>
+              <th>Image.</th>
+            </tr>
+          </thead>
+          {/* {response.data.map((users) => (
+            <tr>
+              <th scope ="row"></th>
+              <td key={index}>{users.id}</td>
+              <td key={title}>{users.title}</td>
+              <td key={imagetiurl}>{users.imageToUrl}</td>
+            </tr>
+          ))} */}
+        </table>
+      )}
     </div>
   );
 }
